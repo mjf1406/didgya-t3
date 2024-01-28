@@ -7,7 +7,15 @@ Did you do it? Did you experience it? DidgYa is an app designed to simplify the 
     - created the logo.svg
     - created the favicon.ico
     - created the landing page
-    - switched to postgresql because I need to store arrays
+    - picked brand colors
+    - integrate Material UI
+
+- 2024/1/xx
+    - start button now starts a DidgYa or does a DidgYa
+    - stop button is hidden if the `timed = false`
+
+- 2024/1/28
+
 
 ## The Stack
 - [Next.js](https://nextjs.org)

@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html {
+    color-scheme: dark light;
+    scroll-behavior: auto;
+}
 
 .text-2xs {
     font-size: 0.6rem; /* 10px */
@@ -31,5 +34,5 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    @apply bg-black text-slate-100
+    @apply bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark
 }

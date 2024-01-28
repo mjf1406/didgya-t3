@@ -21,13 +21,17 @@ export default function Home() {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-          <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-            Didg<span className="text-[hsl(280,100%,70%)]">Ya</span>
+          <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
+            <span className="text-primary-light dark:text-primary-dark">Didg</span><span className="text-supporting-light dark:text-supporting-dark">Ya</span>
           </h1>
-          <div className="tracking-tight text-white max-w-lg text-center text-xl">
-            Did you do it? Did you experience it? Didg<span className="text-[hsl(280,100%,70%)]">Ya</span> is an app designed to simplify the way you track various things that happen in your life.
+          <div className="tracking-tight max-w-lg text-center text-xl">
+            Did you do it? Did you experience it? 
+            <span className="font-bold mx-1.5">
+            <span className="text-primary-light dark:text-primary-dark">Didg</span><span className="text-supporting-light dark:text-supporting-dark">Ya</span>
+            </span>
+            is an app designed to simplify the way you track various things that happen in your life.
           </div>
-          <div className="bg-white rounded-lg shadow-2xl px-4 py-2 font-bold text-2xl text-black">
+          <div className="bg-primary-light dark:bg-primary-dark text-text-dark dark:text-text-dark rounded-lg shadow-2xl px-4 py-2 font-bold text-2xl hover:bg-primary-light/60 hover:dark:bg-primary-dark/60 cursor-pointer">
             {!user.isSignedIn && <SignInButton/>}
             {!!user.isSignedIn && <SignOutButton/>}
           </div>
