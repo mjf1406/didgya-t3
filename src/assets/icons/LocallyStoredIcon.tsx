@@ -1,3 +1,9 @@
+interface Props {
+    width: number;
+    height: number;
+    className?: string;
+}
+
 const LocallyStoredIcon = ({ 
     width,
     height,
