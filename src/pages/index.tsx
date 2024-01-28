@@ -35,9 +35,9 @@ export default function Home() {
             {data?.map((didgya) => (
               <DidgYaListItem 
               key={didgya.id}
-              inputs={didgya.inputs || []}
-              records={didgya.records || []}
-              timedInstances={didgya.timedInstances || []}
+              inputs={(didgya.inputs) ? didgya.inputs : []}
+              records={(didgya.records) ? didgya.records : []}
+              timedInstances={(didgya.timedInstances) ? didgya.timedInstances : []}
               {...didgya} />
             ))}
           </div>
