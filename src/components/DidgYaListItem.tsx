@@ -1,5 +1,3 @@
-import { Image } from 'next/image'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faStop, faCloud } from '@fortawesome/free-solid-svg-icons'
 
