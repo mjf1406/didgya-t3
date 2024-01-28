@@ -3,6 +3,38 @@ import { faPlay, faStop, faCloud } from '@fortawesome/free-solid-svg-icons'
 
 import LocallyStoredIcon from '@/assets/icons/LocallyStoredIcon'
 
+interface Select {
+    id: number;
+    value: string;
+    name: string;
+    description: string;
+}
+
+interface Input {
+    id: number;
+    name: string;
+    type: string;
+    selects: Select[];
+}
+
+interface Variable {
+    id: number;
+    name: string;
+    value: string;
+}
+
+interface Record {
+    id: number;
+    dt: Date;
+    variables: Variable[];
+}
+
+interface TimedInstance {
+    id: number;
+    start: Date;
+    end: Date;
+}
+
 interface Props {
     id: string;
     createdAt: Date;
@@ -11,13 +43,13 @@ interface Props {
     name: string;
     unit: string;
     quantity: number;
-    inputs: any;
+    inputs: Input[];
     timed: boolean;
     unitType: string;
     emoji: string;
-    records: any;
+    records: Record[];
     active: boolean;
-    timedInstances: any;
+    timedInstances: TimedInstance[];
     location: string;
 }
 

@@ -7,7 +7,7 @@ Did you do it? Did you experience it? DidgYa is an app designed to simplify the 
     - created the logo.svg
     - created the favicon.ico
     - created the landing page
-    - 
+    - switched to postgresql because I need to store arrays
 
 ## The Stack
 - [Next.js](https://nextjs.org)

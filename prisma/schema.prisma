@@ -2,35 +2,87 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-    provider        = "prisma-client-js"
-    previewFeatures = ["driverAdapters"]
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
-    provider = "mysql"
-    url      = env("DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 
-    // Do not use foreign keys (PlanetScale does not support them)
-    relationMode = "prisma"
+  // Do not use foreign keys (PlanetScale does not support them)
+  relationMode = "prisma"
 }
 
 model Didgya {
-    id        String    @id @default(cuid())
-    createdAt DateTime  @default(now())
-    updatedAt DateTime  @updatedAt
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-    userId  String
-    name    String  @db.VarChar(255)
-    unit    String // e.g. kilogram, stone, meter, etc.
-    quantity Int // The quantity that is DidgYa's each time start is clicked
-    inputs  Json // array of inputs for the start modal
-    timed   Boolean 
-    unitType    String // 'volume' or 'weight' or 'length'
-    emoji   String  @db.VarChar(255)
-    records Json // array of records
-    active  Boolean // boolean
-    timedInstances  Json // array of timed instances
-    location    String // 'local' or 'cloud'
+  userId         String
+  name           String          @db.VarChar(255)
+  unit           String // e.g. kilogram, stone, meter, etc.
+  quantity       Int // The quantity that is DidgYa's each time start is clicked
+  inputs         Input[] // array of inputs for the start modal
+  timed          Boolean
+  unitType       String // 'volume' or 'weight' or 'length'
+  emoji          String          @db.VarChar(255)
+  records        Record[] // array of records
+  active         Boolean // boolean
+  timedInstances TimedInstance[] // array of timed instances
+  location       String // 'local' or 'cloud'
 
-    @@index([userId])
+  @@index([userId])
+}
+
+model Input {
+  id       Int      @id @default(autoincrement())
+  name     String
+  type     String
+  selects  Select[]
+  Didgya   Didgya?  @relation(fields: [didgyaId], references: [id])
+  didgyaId String?
+
+  @@index([didgyaId])
+}
+
+model Select {
+  id          Int    @id @default(autoincrement())
+  value       String
+  name        String
+  description String
+  Input       Input? @relation(fields: [inputId], references: [id])
+  inputId     Int?
+
+  @@index([inputId])
+}
+
+model Record {
+  id        Int        @id @default(autoincrement())
+  dt        DateTime
+  variables Variable[]
+  Didgya    Didgya?    @relation(fields: [didgyaId], references: [id])
+  didgyaId  String?
+
+   @@index([didgyaId])
+}
+
+model Variable {
+  id       Int     @id @default(autoincrement())
+  name     String
+  value    String
+  Record   Record? @relation(fields: [recordId], references: [id])
+  recordId Int?
+
+  @@index([recordId])
+}
+
+model TimedInstance {
+  id       Int      @id @default(autoincrement())
+  start    DateTime
+  end      DateTime
+  Didgya   Didgya?  @relation(fields: [didgyaId], references: [id])
+  didgyaId String?
+
+   @@index([didgyaId])
 }
