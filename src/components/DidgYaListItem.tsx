@@ -15,9 +15,9 @@ interface Props {
     timed: boolean;
     unitType: string;
     emoji: string;
-    records: string[];
+    records: any;
     active: boolean;
-    timedInstances: string[];
+    timedInstances: any;
     location: string;
 }
 
