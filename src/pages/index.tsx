@@ -4,7 +4,7 @@ import { SignInButton, SignOutButton } from "@clerk/nextjs";
 
 import { api } from "@/utils/api";
 
-import DidgYaListItem from "@/components/DidgYaListItem.tsx";
+import DidgYaListItem from "@/components/DidgYaListItem";
 
 export default function Home() {
   const user = useUser();
