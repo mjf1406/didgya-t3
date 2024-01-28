@@ -11,7 +11,7 @@ interface Props {
     name: string;
     unit: string;
     quantity: number;
-    inputs: string;
+    inputs: any;
     timed: boolean;
     unitType: string;
     emoji: string;
