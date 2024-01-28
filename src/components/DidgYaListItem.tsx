@@ -43,13 +43,13 @@ interface Props {
     name: string;
     unit: string;
     quantity: number;
-    inputs: Input[];
+    inputs?: Input[];
     timed: boolean;
     unitType: string;
     emoji: string;
-    records: Record[];
+    records?: Record[];
     active: boolean;
-    timedInstances: TimedInstance[];
+    timedInstances?: TimedInstance[];
     location: string;
 }
 

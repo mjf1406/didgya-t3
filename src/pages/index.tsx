@@ -33,7 +33,12 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center justify-start w-full h-fit gap-1">
             {data?.map((didgya) => (
-              <DidgYaListItem key={didgya.id} {...didgya} />
+              <DidgYaListItem 
+              key={didgya.id}
+              inputs={didgya.inputs || []}
+              records={didgya.records || []}
+              timedInstances={didgya.timedInstances || []}
+              {...didgya} />
             ))}
           </div>
         </div>
