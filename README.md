@@ -8,11 +8,20 @@ Did you do it? Did you experience it? DidgYa is an app designed to simplify the 
     - created the favicon.ico
     - created the landing page
     - picked brand colors
-    - integrate Material UI
+        - started this, but am I happy with them?
+    - profile page
 
 - 2024/1/xx
-    - start button now starts a DidgYa or does a DidgYa
-    - stop button is hidden if the `timed = false`
+    - start button now starts a DidgYa if `timed = true`, hides the start button, and reveals the stop button
+    - start button now pops the start dialog if the DidgYa has inputs
+    - clicking on a DidgYa now launches the view
+        - do we do a dialog or a modal?
+    - view now has edit and delete buttons
+    - view now has a [scatter plot](https://mui.com/x/react-charts/scatter/) of the data
+- 2024/1/xx
+    - Which UI library? Material UI, shadcn/ui?
+    - The UI Components that I need
+        - 
 
 - 2024/1/28
 
