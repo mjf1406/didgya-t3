@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faStop, faCloud } from '@fortawesome/free-solid-svg-icons'
 
-import LocallyStoredIcon from '@/assets/icons/LocallyStoredIcon.tsx'
+import LocallyStoredIcon from '@/assets/icons/LocallyStoredIcon'
 
 const DidgYaListItem = ({
     id,
@@ -38,13 +38,13 @@ const DidgYaListItem = ({
                 <FontAwesomeIcon icon={faPlay} />
                 </span>
             </div>
-            {/* <div className="w-3 text-xs self-start justify-start">
+            <div className="w-3 text-xs self-start justify-start">
                 {
                     (location === 'cloud') ?
                     <FontAwesomeIcon className='text-blue-300' icon={faCloud} /> :
                     <LocallyStoredIcon className="fill-orange-300" height="12" width="12" />
                 }
-            </div> */}
+            </div>
         </div>
     );
 };
