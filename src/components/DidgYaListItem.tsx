@@ -3,6 +3,24 @@ import { faPlay, faStop, faCloud } from '@fortawesome/free-solid-svg-icons'
 
 import LocallyStoredIcon from '@/assets/icons/LocallyStoredIcon'
 
+interface Props {
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    userId: string;
+    name: string;
+    unit: string;
+    quantity: number;
+    inputs: string;
+    timed: boolean;
+    unitType: string;
+    emoji: string;
+    records: string[];
+    active: boolean;
+    timedInstances: string[];
+    location: string;
+}
+
 const DidgYaListItem = ({
     id,
     createdAt,
@@ -19,7 +37,7 @@ const DidgYaListItem = ({
     active,
     timedInstances,
     location
-}) => {
+}: Props ) => {
     return (
         <div className="flex flex-row gap-4 pl-3 pr-1.5 py-1.5 bg-cyan-950 items-center justify-between text-3xl flex-no-wrap max-w-md w-full text-white" key={id}>
             <div className="text-2xl cursor-pointer hover:bg-cyan-900 rounded-md p-1">{ emoji }</div>
@@ -38,13 +56,13 @@ const DidgYaListItem = ({
                 <FontAwesomeIcon icon={faPlay} />
                 </span>
             </div>
-            <div className="w-3 text-xs self-start justify-start">
+            {/* <div className="w-3 text-xs self-start justify-start">
                 {
                     (location === 'cloud') ?
                     <FontAwesomeIcon className='text-blue-300' icon={faCloud} /> :
                     <LocallyStoredIcon className="fill-orange-300" height="12" width="12" />
                 }
-            </div>
+            </div> */}
         </div>
     );
 };
