@@ -5,8 +5,8 @@ import LocallyStoredIcon from '@/assets/icons/LocallyStoredIcon'
 
 interface Props {
     id: string;
-    createdAt: string;
-    updatedAt: string;
+    createdAt: Date;
+    updatedAt: Date;
     userId: string;
     name: string;
     unit: string;
