@@ -17,3 +17,4 @@ Did you do it? Did you experience it? DidgYa is an app designed to simplify the 
 - [PlanetScale](https://planetscale.com/)
 - [Vercel](https://vercel.com/)
 - [Clerk](https://clerk.com/)
+- [Axiom](https://axiom.co/)

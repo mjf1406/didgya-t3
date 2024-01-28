@@ -6,8 +6,10 @@ import { SignInButton, SignOutButton } from "@clerk/nextjs";
 import { api } from "@/utils/api";
 
 export default function Home() {
-  const hello = api.post.hello.useQuery({ text: "from tRPC" });
   const user = useUser();
+
+  const { data } = api.didgya.getAll.useQuery();
+  console.log("🚀 ~ Home ~ data:", data)
 
   return (
     <>
@@ -24,9 +26,16 @@ export default function Home() {
           <div className="tracking-tight text-white max-w-lg text-center text-xl">
             Did you do it? Did you experience it? Didg<span className="text-[hsl(280,100%,70%)]">Ya</span> is an app designed to simplify the way you track various things that happen in your life, from daily tasks, like brushing your teeth or drinking water, to things you experience, like a headache or an epiphany.
           </div>
-          <div>
+          <div className="bg-white rounded-lg shadow-2xl px-4 py-2 font-bold text-2xl">
             {!user.isSignedIn && <SignInButton/>}
             {!!user.isSignedIn && <SignOutButton/>}
+          </div>
+          <div>
+            {data?.map((didgya) => (
+              <div key={didgya.id}>
+                {didgya.emoji} {didgya.name}
+              </div>
+            ))}
           </div>
         </div>
       </main>

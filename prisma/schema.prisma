@@ -14,11 +14,23 @@ datasource db {
     relationMode = "prisma"
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Didgya {
+    id        String    @id @default(cuid())
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
 
-    @@index([name])
+    userId  String
+    name    String  @db.VarChar(255)
+    unit    String // e.g. kilogram, stone, meter, etc.
+    quantity Int // The quantity that is DidgYa's each time start is clicked
+    inputs  Json // array of inputs for the start modal
+    timed   Boolean 
+    unitType    String // 'volume' or 'weight' or 'length'
+    emoji   String  @db.VarChar(255)
+    records Json // array of records
+    active  Boolean // boolean
+    timedInstances  Json // array of timed instances
+    location    String // 'local' or 'cloud'
+
+    @@index([userId])
 }
