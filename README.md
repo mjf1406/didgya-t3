@@ -22,7 +22,9 @@ Did you do it? Did you experience it? DidgYa is an app designed to simplify the 
     - view now has a [scatter plot](https://mui.com/x/react-charts/scatter/) of the data
     - skeleton UI is now shown before DidgYas are fully loaded
         - store the count in localStorage to know how many skeletons to show and if no localStorage value, show 3 skeletons
+    - only DidgYas for the logged in user are fetched -- I'm having the worst FUCKING TIME WITH THIS!!! FUUUUCK
 - 2024/1/29
+    - added Create DidgYa item to top of DidgYa list -- does not function yet
     - added `arrayExtensions.ts` as my personal module that extends Array.prototype
     - added `stringExtensions.ts` as my personal module that extends String.prototype
     - added `helperFunctions.ts` as another personal module that provides several utility functions

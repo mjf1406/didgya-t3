@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { useUser } from "@clerk/nextjs";
 import { SignInButton, SignOutButton } from "@clerk/nextjs";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import { api } from "@/utils/api";
 
@@ -9,9 +11,18 @@ import "@/modules/arrayExtensions"
 
 export default function Home() {
   const user = useUser();
+  let data = [];
 
-  let { data } = api.didgya.getAll.useQuery();
-  if (data) data = data.alphabetize('name');
+  if (user.isLoaded) {
+    console.log("userId:", user?.user.id)
+    const result = api.didgya.getAllByUserId.useQuery({ userId: user?.user.id });
+    data = result?.data || [];
+  }
+
+  function createDidgYa(userId: string) {
+    if (!userId) return console.log("Please log in to create a DidgYa.");
+    console.log(`Creating a new DidgYa as ${userId}...`);
+  }
 
   return (
     <>
@@ -37,10 +48,23 @@ export default function Home() {
             {!!user.isSignedIn && <SignOutButton/>}
           </div>
           <div className="flex flex-col items-center justify-start w-full h-fit gap-1">
+            <div 
+              className="flex flex-row gap-4 pl-3 pr-1.5 py-1.5 bg-supporting-light dark:bg-supporting-dark items-center justify-between text-3xl flex-no-wrap max-w-md w-full text-white hover:bg-supporting-light/80 hover:dark:bg-supporting-dark/80 cursor-pointer rounded-full" 
+              key={"create-didgya"}
+              onClick={()=>createDidgYa(user.user.id)}
+            >
+              <div className="text-2xl cursor-pointer rounded-md p-1 grow-0 shrink opacity-0">🤷</div>
+              <div className="text-xl text-left grow shrink-0">Create DidgYa</div>
+              <div className="flex flex-row gap-2 items-center"></div>
+              <span id="play-button" className="mr-3 w-6 text-highlight-light dark:text-highlight-dark cursor-pointer">
+                  <FontAwesomeIcon icon={faPlus} />
+              </span>
+            </div>
             {data?.map((didgya) => (
               <DidgYaListItem 
-              key={didgya.id}
-              {...didgya} />
+                key={didgya.id}
+                {...didgya} 
+              />
             ))}
           </div>
         </div>
