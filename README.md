@@ -7,23 +7,27 @@ Did you do it? Did you experience it? DidgYa is an app designed to simplify the 
     - created the logo.svg
     - created the favicon.ico
     - created the landing page
-    - picked brand colors
-        - started this, but am I happy with them?
+    - picked brand colors -- started this, but am I happy with them?
     - profile page
-
-- 2024/1/xx
-    - start button now starts a DidgYa if `timed = true`, hides the start button, and reveals the stop button
-    - start button now pops the start dialog if the DidgYa has inputs
-    - clicking on a DidgYa now launches the view
-        - do we do a dialog or a modal?
-    - view now has edit and delete buttons
-    - view now has a [scatter plot](https://mui.com/x/react-charts/scatter/) of the data
 - 2024/1/xx
     - Which UI library? Material UI, shadcn/ui?
     - The UI Components that I need
-        - 
-
-- 2024/1/28
+- 2024/1/xx
+    - start button now inserts a record into the DB
+    - times per day is updated based on the DB count
+    - start button now starts a DidgYa if `timed = true`, hides the start button, and reveals the stop button
+    - start button now pops the start dialog if the DidgYa has inputs
+    - clicking on a DidgYa now launches the view
+    - view now has edit and delete buttons
+    - view now has a [scatter plot](https://mui.com/x/react-charts/scatter/) of the data
+    - skeleton UI is now shown before DidgYas are fully loaded
+        - store the count in localStorage to know how many skeletons to show and if no localStorage value, show 3 skeletons
+- 2024/1/29
+    - added `arrayExtensions.ts` as my personal module that extends Array.prototype
+    - added `stringExtensions.ts` as my personal module that extends String.prototype
+    - added `helperFunctions.ts` as another personal module that provides several utility functions
+    - added inputs for Poop into DB
+    - added selects for Poop into DB
 
 
 ## The Stack

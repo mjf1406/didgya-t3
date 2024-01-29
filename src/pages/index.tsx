@@ -5,12 +5,13 @@ import { SignInButton, SignOutButton } from "@clerk/nextjs";
 import { api } from "@/utils/api";
 
 import DidgYaListItem from "@/components/DidgYaListItem";
+import "@/modules/arrayExtensions"
 
 export default function Home() {
   const user = useUser();
 
-  const { data } = api.didgya.getAll.useQuery();
-  console.log("🚀 ~ Home ~ data:", data)
+  let { data } = api.didgya.getAll.useQuery();
+  if (data) data = data.alphabetize('name');
 
   return (
     <>

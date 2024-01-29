@@ -49,7 +49,8 @@ model Input {
 model Select {
   id          Int    @id @default(autoincrement())
   value       String
-  name        String
+  name        String @default("")
+  hex         String @default("")
   description String
   Input       Input? @relation(fields: [inputId], references: [id])
   inputId     Int?
