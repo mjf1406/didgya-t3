@@ -30,9 +30,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faXmark, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 const formSchema = z.object({
-    username: z.string().min(2, {
-        message: 'Username must be at least 2 characters.'
-    })
+    name: z.string().min(2, {
+        message: 'Name must be at least 2 characters.'
+    }),
+    quantity: z.number().min(1, {
+        message: 'Quantity must be at least 1.'
+    }),
+    unit: z.string().min(1, {
+        message: 'Unit must be at least 1 character.'
+    }),
+    dailyGoal: z.number().min(1, {
+        message: 'Daily goal must be at least 1.'
+    }),
+    emoji: z
+        .string()
+        .min(1, {
+            message: 'Emoji must be at least 1 character.'
+        })
+        .max(1, {
+            message: 'Emoji must be at most 1 character.'
+        }),
+    timed: z.boolean()
 });
 
 // 2. Define a submit handler.
@@ -46,7 +64,7 @@ export function CreateDidgYaDialogForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: ''
+            name: ''
         }
     });
     return (
@@ -151,7 +169,7 @@ export function CreateDidgYaDialogForm() {
                         />
                         <FormField
                             control={form.control}
-                            name="daily-goal"
+                            name="dailyGoal"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>
@@ -166,7 +184,7 @@ export function CreateDidgYaDialogForm() {
                                         </span>
                                     </FormDescription>
                                     <FormControl>
-                                        <Input placeholder="ml" {...field} />
+                                        <Input placeholder="15" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -211,7 +229,7 @@ export function CreateDidgYaDialogForm() {
                                     </FormDescription>
                                     <FormControl>
                                         <div className="flex items-center space-x-2">
-                                            <Switch id="timed" />
+                                            <Switch id="timed" {...field} />
                                             <Label htmlFor="timed">
                                                 Timed Mode
                                             </Label>
