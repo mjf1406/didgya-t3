@@ -46,7 +46,7 @@ export function CreateDidgYaDialogForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: ''
+            username: ''
         }
     });
     return (
