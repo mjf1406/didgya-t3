@@ -21,16 +21,15 @@ import { Spinner } from '@/components/ui/spinner';
 import DidgYaListItem from '@/components/DidgYaListItem';
 import { CreateDidgYaDialogForm } from '@/components/CreateDidgYaDialog';
 import '@/modules/arrayExtensions';
+import type { Didgya } from '@prisma/client';
 
 export default function Home() {
     const user = useUser();
-    let data = [];
+    let data: Array<Didgya> = [];
 
     if (user.isLoaded) {
-        const result = api.didgya.getAllByUserId.useQuery({
-            userId: user?.user.id
-        });
-        data = result?.data || [];
+        const result = api.didgya.getAllByUserId.useQuery();
+        data = result?.data ?? [];
     }
 
     function createDidgYa(userId: string) {
