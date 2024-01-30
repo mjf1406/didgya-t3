@@ -229,7 +229,7 @@ export function CreateDidgYaDialogForm() {
                                     </FormDescription>
                                     <FormControl>
                                         <div className="flex items-center space-x-2">
-                                            <Switch id="timed" {...field} />
+                                            <Switch id="timed" />
                                             <Label htmlFor="timed">
                                                 Timed Mode
                                             </Label>
