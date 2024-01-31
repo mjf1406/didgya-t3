@@ -5,6 +5,18 @@ way you track various things that happen in your life, from daily tasks, like
 brushing your teeth or drinking water, to things you experience, like a headache
 or an epiphany.
 
+<div align="center">
+
+[![Built with - Next.js](https://img.shields.io/badge/Built_with-Next.js-000?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![Hosted on - Vercel](https://img.shields.io/badge/Hosted_on-Vercel-000?style=for-the-badge&logo=vercel)](https://vercel.com/)
+[![Database on - PlanetScale](https://img.shields.io/badge/Database_on-PlanetScale-000?style=for-the-badge&logo=planetscale)](https://planetscale.com/)
+[![Users by - Clerk](https://img.shields.io/badge/Users_by-Clerk-654bf6?style=for-the-badge&logo=clerk)](https://clerk.com/)
+[![Styled with - Tailwind](https://img.shields.io/badge/Styled_with-Tailwind-38bdf8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
+[![Built with - Prisma](https://img.shields.io/badge/Built_with-Prisma-2d3748?style=for-the-badge&logo=prisma)](https://prisma.io)
+[![API handled by - tRPC](https://img.shields.io/badge/API_handled_by-tRPC-398ccb?style=for-the-badge&logo=trpc)](https://trpc.io)
+
+</div>
+
 ## Change Log
 
 -   2024/1/xx
@@ -23,6 +35,9 @@ or an epiphany.
     -   view now has edit and delete buttons
     -   view now has a [scatter plot](https://mui.com/x/react-charts/scatter/)
         of the data
+-   2024/1/31
+    -   added badges to README.md
+    -   added Wipes to Poop inputs
 -   2024/1/30
     -   loading spinner is now shown before DidgYas are fully loaded
     -   only DidgYas for the logged in user are fetched
