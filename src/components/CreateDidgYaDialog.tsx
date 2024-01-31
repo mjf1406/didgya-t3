@@ -50,7 +50,13 @@ const formSchema = z.object({
         .max(1, {
             message: 'Emoji must be at most 1 character.'
         }),
-    timed: z.boolean()
+    timed: z.boolean(),
+    inputsBoolean: z.boolean(),
+    inputs: z.array(
+        z.string().min(1, {
+            message: 'Input must be at least 1 character.'
+        })
+    )
 });
 
 // 2. Define a submit handler.
@@ -90,7 +96,7 @@ export function CreateDidgYaDialogForm() {
                     </span>
                 </div>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-md bg-neutral-light dark:bg-neutral-dark rounded-xl p-8">
+            <DialogContent className="sm:max-w-md bg-neutral-light dark:bg-neutral-dark rounded-xl p-8 overflow-y-scroll max-h-dvh">
                 <DialogHeader>
                     <DialogTitle className="text-2xl">
                         Create DidgYa
@@ -134,9 +140,9 @@ export function CreateDidgYaDialogForm() {
                                     </FormLabel>
                                     <FormDescription>
                                         <span className="text-text-light/60 dark:text-text-dark/60">
-                                            The amount of the DidgYa. E.G. for
-                                            water, 250, then set <i>Unit</i> to
-                                            ml (milliliter).
+                                            The amount of the DidgYa. <br />
+                                            E.G. for water, 250, then set{' '}
+                                            <i>Unit</i> to ml (milliliter).
                                         </span>
                                     </FormDescription>
                                     <FormControl>
@@ -217,9 +223,7 @@ export function CreateDidgYaDialogForm() {
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>
-                                        <span className="text-base">
-                                            Timed Mode
-                                        </span>
+                                        <span className="text-base">Timed</span>
                                     </FormLabel>
                                     <FormDescription>
                                         <span className="text-text-light/60 dark:text-text-dark/60">
@@ -239,10 +243,62 @@ export function CreateDidgYaDialogForm() {
                                 </FormItem>
                             )}
                         />
+                        <FormField
+                            control={form.control}
+                            name="inputsBoolean"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>
+                                        <span className="text-base">
+                                            Inputs
+                                        </span>
+                                    </FormLabel>
+                                    <FormDescription>
+                                        <span className="text-text-light/60 dark:text-text-dark/60">
+                                            Does this DidgYa require inputs?
+                                            <br />
+                                            E.G. weight would require one input:
+                                            kgs/lbs/stones/etc.
+                                        </span>
+                                    </FormDescription>
+                                    <FormControl>
+                                        <div className="flex items-center space-x-2">
+                                            <Switch id="timed" />
+                                            <Label htmlFor="timed">
+                                                Inputs Mode
+                                            </Label>
+                                        </div>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="inputs"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>
+                                        <span className="text-base">
+                                            Inputs
+                                        </span>
+                                    </FormLabel>
+                                    <FormDescription>
+                                        <span className="text-text-light/60 dark:text-text-dark/60">
+                                            Add as many inputs as you need.
+                                        </span>
+                                    </FormDescription>
+                                    <FormControl>
+                                        <div className="flex items-center space-x-2"></div>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
                         <DialogFooter className="sm:justify-start flex flex-row w-full gap-2">
                             <Button
                                 type="submit"
-                                className="bg-secondary-light font-semibold dark:bg-secondary-dark hover:bg-secondary-light/70 hover:dark:bg-secondary-dark/70 w-full"
+                                className="bg-transparent border border-highlight-light dark:border-highlight-dark font-semibold hover:bg-highlight-light/20 hover:dark:bg-highlight-dark/20 w-full"
                             >
                                 <span
                                     id="play-button"

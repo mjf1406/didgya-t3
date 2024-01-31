@@ -81,10 +81,11 @@ export default function Home() {
                         )}
                     </div>
                     <div className="flex h-fit w-full flex-col items-center justify-start gap-1">
-                        <CreateDidgYaDialogForm />
-                        {/* {data?.map((didgya) => (
-                            <DidgYaListItem key={didgya.id} {...didgya} />
-                        ))} */}
+                        {!user.isLoaded ? (
+                            <div></div>
+                        ) : (
+                            <CreateDidgYaDialogForm />
+                        )}
                         {!user.isLoaded ? (
                             <Spinner name="DidgYas" />
                         ) : (

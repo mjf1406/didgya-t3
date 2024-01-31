@@ -38,6 +38,8 @@ or an epiphany.
 -   2024/1/31
     -   added badges to README.md
     -   added Wipes to Poop inputs
+    -   Create DidgYa dialog now has overflow-y-scroll
+    -   added inputs boolean and stared inputs
 -   2024/1/30
     -   loading spinner is now shown before DidgYas are fully loaded
     -   only DidgYas for the logged in user are fetched
